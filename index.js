@@ -197,8 +197,8 @@ if(process.env.MTLS_ENABLE){
     }
 }
 
-var httpServer = http.createServer(app).listen(process.env.HTTP_PORT || 8080);
-var httpsServer = https.createServer(sslOpts,app).listen(process.env.HTTPS_PORT || 8443);
+var httpServer = http.createServer(app).listen(process.env.HTTP_PORT || 8080, '0.0.0.0');
+var httpsServer = https.createServer(sslOpts,app).listen(process.env.HTTPS_PORT || 8443, '0.0.0.0');
 console.log(`Listening on ports ${process.env.HTTP_PORT || 8080} for http, and ${process.env.HTTPS_PORT || 8443} for https.`);
 
 let calledClose = false;
